@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import star from './star.jpg'
+import star from './assets/star.jpg'
 
 class Header extends Component {
     render() {
