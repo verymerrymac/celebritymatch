@@ -4,11 +4,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 
+
 var passport = require('./passport.js');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-// var scoresRouter = require('./routes/scores');
+var imageRouter = require('./routes/image');
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/image', imageRouter);
 // app.use('/scores', scoresRouter);
 
 // catch 404 and forward to error handler
@@ -40,5 +42,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.send('error')
 });
+
 
 module.exports = app;
